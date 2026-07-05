@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUROTRANS | Міжнародна логістика без компромісів</title>
+    <meta name="description" content="Перевозимо вантажі між Україною та Європою. Власний автопарк Euro 6, GPS-контроль 24/7, CMR-страхування до 250 000€ та повний митний супровід.">
+    
+    <!-- Favicons -->
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#121212">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eurotrans.ua/"> 
+    <meta property="og:title" content="EUROTRANS | Міжнародна логістика без компромісів">
+    <meta property="og:description" content="Перевозимо вантажі між Україною та Європою. Власний автопарк Euro 6, GPS-контроль 24/7, CMR-страхування до 250 000€ та повний митний супровід.">
+    <meta property="og:image" content="https://eurotrans.ua/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://eurotrans.ua/">
+    <meta name="twitter:title" content="EUROTRANS | Міжнародна логістика без компромісів">
+    <meta name="twitter:description" content="Перевозимо вантажі між Україною та Європою. Власний автопарк Euro 6, GPS-контроль 24/7, CMR-страхування.">
+    <meta name="twitter:image" content="https://eurotrans.ua/og-image.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        bgBase: '#F5F4EF',
+                        textMain: '#121212',
+                        accent: '#F05A30',
+                        success: '#2E7D32',
+                        grayMain: '#8A8D93',
+                        borderLine: 'rgba(18,18,18,0.12)',
+                        hoverState: '#1C1C1C'
+                    },
+                    spacing: {
+                        section: '140px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F5F4EF; color: #121212; -webkit-font-smoothing: antialiased; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Fade Up */
+        .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fade-up.is-visible { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 0.1s; } .delay-200 { transition-delay: 0.2s; } .delay-300 { transition-delay: 0.3s; }
+        
+        /* Floating Animation */
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        .float-anim { animation: floating 3s ease-in-out infinite; display: block; }
+        .float-delay-0 { animation-delay: 0s; }
+        .float-delay-1 { animation-delay: 0.5s; }
+        .float-delay-2 { animation-delay: 1s; }
+
+        /* Blur In Animation */
+        .blur-in {
+            opacity: 0;
+            filter: blur(12px);
+            transform: scale(0.97);
+            transition: opacity 0.9s ease, filter 0.9s ease, transform 0.9s ease;
+        }
+        .blur-in.is-visible {
+            opacity: 1;
+            filter: blur(0);
+            transform: scale(1);
+        }
+
+        /* Mobile Menu */
+        #mobile-menu { transform: translateX(100%); transition: transform 0.4s ease-in-out; }
+        #mobile-menu.open { transform: translateX(0); }
+
+        .premium-input { background: transparent; border-bottom: 1px solid rgba(18,18,18,0.2); border-radius: 0; padding: 12px 0; outline: none; transition: border-color 0.3s ease; }
+        .premium-input:focus { border-color: #F05A30; }
+        .timeline-line::before { content: ''; position: absolute; left: 11px; top: 24px; bottom: 24px; width: 2px; background: rgba(18,18,18,0.08); z-index: 0; }
+        .timeline-dot { transition: all 0.5s ease; position: relative; z-index: 1; }
+        .timeline-content { transition: opacity 0.5s ease; }
+        .service-row { border-bottom: 1px solid rgba(18,18,18,0.12); transition: all 0.4s ease; cursor: pointer; }
+        .service-row:hover { background-color: rgba(18,18,18,0.02); padding-left: 20px; padding-right: 20px; border-color: #121212; }
+        .service-desc { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.5s ease; opacity: 0; }
+        .service-row:hover .service-desc { max-height: 150px; opacity: 1; margin-top: 12px; }
+    </style>
+</head>
+<body>
+
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 h-[80px] flex items-center border-b border-white/10 bg-transparent text-white">
+        <div class="px-6 md:px-12 w-full max-w-[1440px] mx-auto flex justify-between items-center text-[11px] font-bold uppercase tracking-widest">
+            <div class="flex items-center gap-2 logo-container transition-transform duration-500">
+                <span class="w-2 h-2 bg-accent rounded-full block"></span>
+                <span class="text-lg font-display tracking-tight">EUROTRANS</span>
+            </div>
+            
+            <nav class="hidden lg:flex space-x-10">
+                <a href="#about" class="hover:text-accent transition-colors">Про нас</a>
+                <a href="#services" class="hover:text-accent transition-colors">Послуги</a>
+                <a href="#fleet" class="hover:text-accent transition-colors">Автопарк</a>
+                <a href="#process" class="hover:text-accent transition-colors">Процес</a>
+                <a href="#contacts" class="hover:text-accent transition-colors">Контакти</a>
+            </nav>
+
+            <div class="flex items-center gap-6">
+                <span class="hidden md:block font-sans opacity-90"><a href="tel:+380441234567" class="hover:text-accent transition-colors">+38 (044) 123-45-67</a></span>
+                <button onclick="openPopup('quote')" class="hidden sm:inline-block bg-transparent border border-white px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent hover:border-accent transition-all duration-300">
+                    Отримати прорахунок
+                </button>
+                <!-- Кнопка відкриття мобільного меню -->
+                <button id="mobile-menu-btn" class="lg:hidden border border-current px-4 py-2 rounded-full hover:bg-white hover:text-textMain transition-colors">Меню</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Мобільне меню -->
+    <div id="mobile-menu" class="fixed inset-0 z-[150] bg-[#121212] flex flex-col pt-24 px-6 pb-12 overflow-y-auto">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-4xl text-white opacity-70 hover:opacity-100 transition-opacity">&times;</button>
+        <nav class="flex flex-col space-y-6 text-2xl font-display uppercase font-bold text-white mb-12 mt-4">
+            <a href="#about" class="mobile-link hover:text-accent transition-colors">Про нас</a>
+            <a href="#services" class="mobile-link hover:text-accent transition-colors">Послуги</a>
+            <a href="#fleet" class="mobile-link hover:text-accent transition-colors">Автопарк</a>
+            <a href="#process" class="mobile-link hover:text-accent transition-colors">Процес</a>
+            <a href="#contacts" class="mobile-link hover:text-accent transition-colors">Контакти</a>
+        </nav>
+        <div class="mt-auto pt-8 border-t border-white/10">
+            <a href="tel:+380441234567" class="block text-xl font-bold text-white mb-6 hover:text-accent transition-colors">+38 (044) 123-45-67</a>
+            <button onclick="openPopup('quote'); document.getElementById('mobile-menu').classList.remove('open'); document.body.style.overflow = '';" class="w-full bg-accent text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest">
+                Отримати прорахунок
+            </button>
+        </div>
+    </div>
+
+    <div id="animation-container" class="relative h-[300vh] h-[300dvh] w-full bg-textMain">
+        <div id="hero" class="sticky top-0 h-screen h-[100dvh] w-full overflow-hidden text-white flex flex-col justify-end">
+            <!-- Стиснуте відео WebM -->
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover grayscale-[20%] scale-105">
+                <source src="https://res.cloudinary.com/sp3dp7jy/video/upload/v1783257563/kling_20260705_VIDEO_Live_actio_601_0_y3ek2r.webm" type="video/webm">
+            </video>
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#121212] via-[#121212]/50 to-transparent"></div>
+
+            <div class="relative z-20 w-full max-w-[1440px] mx-auto px-6 md:px-12 pb-6 sm:pb-10 md:pb-16 xl:pb-24">
+                <div class="flex flex-col xl:flex-row justify-between items-start xl:items-end gap-6 md:gap-10 xl:gap-16">
+                    <div class="w-full xl:w-[60%]">
+                        <h1 class="text-[11vw] sm:text-[13vw] xl:text-[140px] font-display font-bold leading-[0.95] xl:leading-[0.85] tracking-tighter fade-up uppercase">
+                            Міжнародна<br>Логістика
+                        </h1>
+                        <p class="mt-3 md:mt-8 text-sm sm:text-base md:text-lg max-w-lg font-medium opacity-80 fade-up delay-100 leading-relaxed">
+                            Перевозимо вантажі між Україною та країнами Європи. Власний автопарк. GPS-контроль. CMR-страхування. Повний митний супровід.
+                        </p>
+                        <div class="mt-5 md:mt-10 flex flex-col sm:flex-row gap-3 md:gap-4 fade-up delay-200">
+                            <button onclick="openPopup('quote')" class="bg-accent text-white px-6 py-4 sm:px-10 sm:py-5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest hover:scale-105 hover:shadow-[0_0_30px_rgba(240,90,48,0.3)] transition-all duration-300 text-center">
+                                Отримати прорахунок
+                            </button>
+                            <a href="#services" class="border border-white/30 text-white px-6 py-4 sm:px-10 sm:py-5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-textMain transition-colors duration-300 text-center">
+                                Наші послуги
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="w-full xl:w-[35%] grid grid-cols-4 sm:grid-cols-2 gap-2 sm:gap-4 fade-up delay-300">
+                        <div class="bg-white/5 backdrop-blur-md border border-white/10 p-2 sm:p-6 md:p-8 rounded-xl sm:rounded-3xl hover:bg-white/10 transition-colors">
+                            <div class="text-base sm:text-4xl md:text-5xl font-display font-bold text-accent">10+</div>
+                            <div class="text-[6px] sm:text-[10px] font-bold uppercase tracking-widest mt-1 sm:mt-2 opacity-60">Років досвіду</div>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-md border border-white/10 p-2 sm:p-6 md:p-8 rounded-xl sm:rounded-3xl hover:bg-white/10 transition-colors">
+                            <div class="text-base sm:text-4xl md:text-5xl font-display font-bold">45k</div>
+                            <div class="text-[6px] sm:text-[10px] font-bold uppercase tracking-widest mt-1 sm:mt-2 opacity-60">Успішних рейсів</div>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-md border border-white/10 p-2 sm:p-6 md:p-8 rounded-xl sm:rounded-3xl hover:bg-white/10 transition-colors">
+                            <div class="text-base sm:text-4xl md:text-5xl font-display font-bold text-success">99%</div>
+                            <div class="text-[6px] sm:text-[10px] font-bold uppercase tracking-widest mt-1 sm:mt-2 opacity-60">Вчасно доставлено</div>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-md border border-white/10 p-2 sm:p-6 md:p-8 rounded-xl sm:rounded-3xl hover:bg-white/10 transition-colors">
+                            <div class="text-base sm:text-4xl md:text-5xl font-display font-bold">€250k</div>
+                            <div class="text-[6px] sm:text-[10px] font-bold uppercase tracking-widest mt-1 sm:mt-2 opacity-60">Покриття CMR</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="next-section" class="sticky top-0 h-screen h-[100dvh] w-full bg-bgBase rounded-t-[48px] shadow-[0_-30px_60px_rgba(0,0,0,0.3)] overflow-hidden flex flex-col z-30" style="transform: translateY(100%);">
+            <div class="flex-none w-full border-b border-borderLine py-8 px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-grayMain whitespace-nowrap">Нам довіряють компанії</span>
+                <div class="flex gap-8 md:gap-16 overflow-x-auto no-scrollbar w-full md:justify-end opacity-40 grayscale hover:grayscale-0 transition duration-500">
+                    <span class="font-display text-xl font-bold">VOLVO</span>
+                    <span class="font-display text-xl font-bold">IKEA</span>
+                    <span class="font-display text-xl font-bold">BOSCH</span>
+                    <span class="font-display text-xl font-bold">SIEMENS</span>
+                    <span class="font-display text-xl font-bold">ROSHEN</span>
+                    <span class="font-display text-xl font-bold">METRO</span>
+                </div>
+            </div>
+
+            <div class="flex-grow flex items-center justify-center p-6 md:p-12 overflow-y-auto no-scrollbar">
+                <!-- Блок з Blur-in анімацією -->
+                <div class="w-full max-w-[1320px] bg-white rounded-[20px] sm:rounded-[32px] p-5 sm:p-8 md:p-16 shadow-[0_20px_40px_rgba(0,0,0,0.03)] border border-borderLine blur-in">
+                    <h2 class="text-2xl sm:text-3xl md:text-5xl font-display font-bold mb-3 sm:mb-4 uppercase tracking-tight">Розрахунок вартості</h2>
+                    <p class="text-xs sm:text-sm text-grayMain mb-6 sm:mb-12">Надішліть деталі маршруту — ми підготуємо комерційну пропозицію протягом 15 хвилин.</p>
+                    
+                    <form class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8">
+                        <div class="col-span-1">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-grayMain block mb-1">Звідки</label>
+                            <input type="text" name="from_location" placeholder="Країна, Місто" class="premium-input w-full text-lg">
+                        </div>
+                        <div class="col-span-1">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-grayMain block mb-1">Куди</label>
+                            <input type="text" name="to_location" placeholder="Країна, Місто" class="premium-input w-full text-lg">
+                        </div>
+                        <div class="col-span-1">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-grayMain block mb-1">Тип вантажу</label>
+                            <select name="cargo_type" class="premium-input w-full text-lg bg-transparent appearance-none">
+                                <option>FTL (Окрема фура)</option>
+                                <option>LTL (Збірний вантаж)</option>
+                                <option>Рефрижератор</option>
+                                <option>ADR (Небезпечний)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-span-1">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-grayMain block mb-1">Вага / Палети</label>
+                            <input type="text" name="weight" placeholder="напр. 20т / 33 палети" class="premium-input w-full text-lg">
+                        </div>
+                        <div class="col-span-1">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-grayMain block mb-1">Телефон</label>
+                            <input type="tel" name="phone" placeholder="+380" class="premium-input w-full text-lg">
+                        </div>
+                        
+                        <div class="col-span-1 flex flex-col justify-end">
+                            <label class="flex items-center gap-3 cursor-pointer mb-4">
+                                <input type="checkbox" name="customs" class="w-4 h-4 accent-accent" checked>
+                                <span class="text-sm font-medium">Потрібне митне оформлення</span>
+                            </label>
+                        </div>
+
+                        <div class="col-span-1 md:col-span-3 pt-6 border-t border-borderLine flex justify-end">
+                            <button type="button" onclick="openPopup('success')" class="bg-textMain text-white px-10 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-accent transition-colors w-full md:w-auto">
+                                Отримати прорахунок ↗
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="relative z-40 bg-bgBase overflow-hidden">
+        
+        <section id="about" class="py-section px-6 md:px-12 max-w-[1440px] mx-auto border-b border-borderLine">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Контейнери розділені, щоб fade-up та float-anim не конфліктували через transform -->
+                <div class="fade-up">
+                    <div class="float-anim float-delay-0 w-full">
+                        <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1200&auto=format&fit=crop" width="1200" height="900" loading="lazy" class="w-full h-auto rounded-3xl grayscale-[20%] object-cover aspect-[4/3]" alt="Logistics Experts">
+                    </div>
+                </div>
+                <div>
+                    <div class="fade-up inline-block mb-8">
+                        <span class="border border-textMain rounded-full px-4 py-1.5 text-[10px] uppercase font-bold tracking-widest float-anim float-delay-1 block">Про компанію</span>
+                    </div>
+                    <div class="fade-up delay-100 mb-8">
+                        <h2 class="text-4xl md:text-5xl lg:text-[64px] font-display font-bold leading-[1.1] tracking-tight uppercase float-anim float-delay-2 block">
+                            Логістика — це більше, ніж просто перевезення.
+                        </h2>
+                    </div>
+                    <div class="fade-up delay-200 mb-6">
+                        <p class="text-lg font-medium opacity-80 max-w-lg float-anim float-delay-0 block">
+                            Це відповідальність за ваш вантаж, виробничі терміни та репутацію вашого бізнесу перед європейськими партнерами. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-section px-6 md:px-12 max-w-[1440px] mx-auto border-b border-borderLine">
+            <div class="mb-16 md:mb-24 fade-up">
+                <h2 class="text-4xl md:text-6xl font-display font-bold uppercase tracking-tight">Чому бізнес обирає<br><span class="text-accent">EUROTRANS</span></h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-12">
+                <div class="fade-up border-t border-borderLine pt-6 group">
+                    <div class="w-12 h-12 mb-6 rounded-full border border-borderLine flex items-center justify-center text-sm font-medium group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all">01</div>
+                    <h3 class="text-xl font-display font-bold uppercase mb-3">Власний автопарк</h3>
+                    <p class="text-sm opacity-70">Нові автомобілі стандарту Euro 6, що гарантує безперебійний проїзд по всьому ЄС без затримок.</p>
+                </div>
+                <div class="fade-up delay-100 border-t border-borderLine pt-6 group">
+                    <div class="w-12 h-12 mb-6 rounded-full border border-borderLine flex items-center justify-center text-sm font-medium group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all">02</div>
+                    <h3 class="text-xl font-display font-bold uppercase mb-3">Митний супровід</h3>
+                    <p class="text-sm opacity-70">Власні брокери. Оформлюємо T1, EX1, EUR.1. Жодних простоїв на кордоні через документи.</p>
+                </div>
+                <div class="fade-up delay-200 border-t border-borderLine pt-6 group">
+                    <div class="w-12 h-12 mb-6 rounded-full border border-borderLine flex items-center justify-center text-sm font-medium group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all">03</div>
+                    <h3 class="text-xl font-display font-bold uppercase mb-3">GPS-контроль 24/7</h3>
+                    <p class="text-sm opacity-70">Трекінг кожного автомобіля в реальному часі. Ви завжди знаєте точне місцезнаходження вантажу.</p>
+                </div>
+                <div class="fade-up border-t border-borderLine pt-6 group">
+                    <div class="w-12 h-12 mb-6 rounded-full border border-borderLine flex items-center justify-center text-sm font-medium group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all">04</div>
+                    <h3 class="text-xl font-display font-bold uppercase mb-3">Персональний логіст</h3>
+                    <p class="text-sm opacity-70">Один експерт веде вашу заявку від прорахунку до вивантаження на складі покупця.</p>
+                </div>
+                <div class="fade-up delay-100 border-t border-borderLine pt-6 group">
+                    <div class="w-12 h-12 mb-6 rounded-full border border-borderLine flex items-center justify-center text-sm font-medium group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all">05</div>
+                    <h3 class="text-xl font-display font-bold uppercase mb-3">Страхування CMR</h3>
+                    <p class="text-sm opacity-70">Відповідальність перевізника застрахована на 250 000 євро у надійній європейській компанії.</p>
+                </div>
+                <div class="fade-up delay-200 border-t border-borderLine pt-6 group">
+                    <div class="w-12 h-12 mb-6 rounded-full border border-borderLine flex items-center justify-center text-sm font-medium group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all">06</div>
+                    <h3 class="text-xl font-display font-bold uppercase mb-3">Безпека складів</h3>
+                    <p class="text-sm opacity-70">Мережа консолідаційних складів у Польщі та Німеччині для обробки збірних вантажів.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-section px-6 md:px-12 max-w-[1440px] mx-auto border-b border-borderLine">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <div class="lg:col-span-4 fade-up">
+                    <h2 class="text-4xl md:text-6xl font-display font-bold uppercase tracking-tight sticky top-32">Напрямки<br>діяльності</h2>
+                    <p class="text-sm font-medium opacity-70 mt-6 max-w-xs">Проєктуємо оптимальні маршрути під специфіку саме вашого бізнесу та типу товару.</p>
+                </div>
+                
+                <div class="lg:col-span-8 fade-up delay-100 border-t border-borderLine">
+                    <div class="service-row py-8 group">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-6">
+                                <span class="text-xs font-bold opacity-50 uppercase tracking-widest">01</span>
+                                <h3 class="text-2xl md:text-3xl font-display font-bold uppercase">FTL Перевезення</h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-full border border-borderLine flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors">↗</div>
+                        </div>
+                        <div class="service-desc text-sm opacity-70 max-w-2xl ml-10">
+                            Окрема фура (до 22 тонн / 33 палети) орендується виключно під ваш вантаж. Ідеальне рішення для великих партій товару, що вимагає максимально швидкої доставки від дверей до дверей без перевантажень на транзитних складах.
+                        </div>
+                    </div>
+
+                    <div class="service-row py-8 group">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-6">
+                                <span class="text-xs font-bold opacity-50 uppercase tracking-widest">02</span>
+                                <h3 class="text-2xl md:text-3xl font-display font-bold uppercase">Збірні вантажі (LTL)</h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-full border border-borderLine flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors">↗</div>
+                        </div>
+                        <div class="service-desc text-sm opacity-70 max-w-2xl ml-10">
+                            Оптимізація логістичного бюджету при доставці від 1 палети. Вантаж консолідується на наших складах у Польщі та Німеччині, після чого відправляється регулярними рейсами в Україну. Ви платите лише за місце, яке займає ваш товар.
+                        </div>
+                    </div>
+
+                    <div class="service-row py-8 group">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-6">
+                                <span class="text-xs font-bold opacity-50 uppercase tracking-widest">03</span>
+                                <h3 class="text-2xl md:text-3xl font-display font-bold uppercase">Рефрижератори</h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-full border border-borderLine flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors">↗</div>
+                        </div>
+                        <div class="service-desc text-sm opacity-70 max-w-2xl ml-10">
+                            Транспортування із суворим дотриманням температурного режиму від -20°C до +20°C. Обов'язкове використання термописців. Працюємо з продуктами харчування, медикаментами, косметикою та хімічною промисловістю.
+                        </div>
+                    </div>
+
+                    <div class="service-row py-8 group">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-6">
+                                <span class="text-xs font-bold opacity-50 uppercase tracking-widest">04</span>
+                                <h3 class="text-2xl md:text-3xl font-display font-bold uppercase">Небезпечні вантажі (ADR)</h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-full border border-borderLine flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors">↗</div>
+                        </div>
+                        <div class="service-desc text-sm opacity-70 max-w-2xl ml-10">
+                            Водії мають відповідні сертифікати, а автомобілі оснащені всім необхідним маркуванням та засобами захисту. Оформлюємо всі необхідні дозволи для безпечного транзиту територією Європейського Союзу.
+                        </div>
+                    </div>
+
+                    <div class="service-row py-8 group">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-6">
+                                <span class="text-xs font-bold opacity-50 uppercase tracking-widest">05</span>
+                                <h3 class="text-2xl md:text-3xl font-display font-bold uppercase">Митне оформлення</h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-full border border-borderLine flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-colors">↗</div>
+                        </div>
+                        <div class="service-desc text-sm opacity-70 max-w-2xl ml-10">
+                            Власний брокерський відділ. Швидке оформлення експортних/імпортних декларацій, транзитних гарантій T1, сертифікатів походження EUR.1 та EX1. Мінімізуємо ризик простою вантажів на кордоні.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fleet" class="py-section border-b border-borderLine">
+            <div class="px-6 md:px-12 max-w-[1440px] mx-auto mb-16 fade-up">
+                <span class="border border-textMain rounded-full px-4 py-1.5 text-[10px] uppercase font-bold tracking-widest mb-6 inline-block">Техніка</span>
+                <h2 class="text-4xl md:text-6xl font-display font-bold uppercase tracking-tight mb-6">Наш автопарк</h2>
+                <p class="max-w-xl text-sm font-medium opacity-70">Сучасні вантажні автомобілі стандарту Euro 6 проходять регулярне ТО, оснащені GPS та готові до рейсів по всій Європі.</p>
+            </div>
+            
+            <div class="px-6 md:px-12 pb-8 flex gap-8 overflow-x-auto no-scrollbar fade-up delay-100" style="scroll-snap-type: x mandatory;">
+                <div class="min-w-[320px] md:min-w-[500px] group cursor-pointer scroll-snap-align-start">
+                    <div class="aspect-[4/3] bg-bgBase rounded-2xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=800" width="800" height="600" loading="lazy" alt="Тентований Mega для міжнародних перевезень" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0">
+                    </div>
+                    <div class="border-b border-borderLine pb-4 mb-4">
+                        <h3 class="text-2xl font-display font-bold uppercase">Тентований Mega</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-xs font-bold uppercase tracking-widest opacity-70">
+                        <div>Вантажопідйомність: <br><span class="text-textMain text-sm">22 тонни</span></div>
+                        <div>Об'єм: <br><span class="text-textMain text-sm">100 м³</span></div>
+                        <div>Місткість: <br><span class="text-textMain text-sm">33 європалети</span></div>
+                        <div>Навантаження: <br><span class="text-textMain text-sm">Заднє / Бічне / Верхнє</span></div>
+                    </div>
+                </div>
+                <div class="min-w-[320px] md:min-w-[500px] group cursor-pointer scroll-snap-align-start">
+                    <div class="aspect-[4/3] bg-bgBase rounded-2xl overflow-hidden mb-6 relative">
+                        <img src="https://res.cloudinary.com/sp3dp7jy/image/upload/v1783250803/dostavka16_asflnm.jpg" width="800" height="600" loading="lazy" alt="Рефрижератор для перевезення з температурним режимом" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0">
+                    </div>
+                    <div class="border-b border-borderLine pb-4 mb-4">
+                        <h3 class="text-2xl font-display font-bold uppercase">Рефрижератор</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-xs font-bold uppercase tracking-widest opacity-70">
+                        <div>Температура: <br><span class="text-textMain text-sm">-20°C до +20°C</span></div>
+                        <div>Об'єм: <br><span class="text-textMain text-sm">86 м³</span></div>
+                        <div>Місткість: <br><span class="text-textMain text-sm">33 європалети</span></div>
+                        <div>Особливість: <br><span class="text-textMain text-sm">Термописець</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="py-section px-6 md:px-12 max-w-[1440px] mx-auto bg-bgBase">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="fade-up">
+                    <h2 class="text-4xl md:text-6xl lg:text-[72px] font-display font-bold uppercase tracking-tight leading-tight">
+                        Як проходить<br>співпраця
+                    </h2>
+                    
+                    <!-- Блок зі статистикою та анімацією Count Up -->
+                    <div class="mt-12 border-l-2 border-accent pl-6">
+                        <div class="text-5xl md:text-7xl font-display font-bold text-accent"><span class="count-up" data-target="400">0</span>+</div>
+                        <div class="text-sm font-bold uppercase tracking-widest mt-2 opacity-60">Успішних доставок щомісяця</div>
+                    </div>
+                </div>
+                
+                <div class="relative timeline-line pl-10 space-y-16 py-8" id="auto-timeline">
+                    
+                    <div class="timeline-step relative fade-up">
+                        <div class="timeline-dot absolute -left-[45px] top-2 w-6 h-6 bg-accent rounded-full border-4 border-bgBase shadow-[0_0_15px_rgba(240,90,48,0.6)]"></div>
+                        <div class="timeline-content opacity-100">
+                            <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-3">01. Отримуємо заявку</h3>
+                            <p class="text-base opacity-80">Ви залишаєте маршрут. Наш менеджер уточнює габарити, вагу та специфіку вантажу.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-step relative fade-up">
+                        <div class="timeline-dot absolute -left-[45px] top-2 w-6 h-6 bg-[#121212] rounded-full border-4 border-bgBase"></div>
+                        <div class="timeline-content opacity-30">
+                            <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-3">02. Прорахунок та договір</h3>
+                            <p class="text-base opacity-80">Надаємо фіксовану вартість. Підписуємо договір та заявку на перевезення.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-step relative fade-up">
+                        <div class="timeline-dot absolute -left-[45px] top-2 w-6 h-6 bg-[#121212] rounded-full border-4 border-bgBase"></div>
+                        <div class="timeline-content opacity-30">
+                            <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-3">03. Завантаження</h3>
+                            <p class="text-base opacity-80">Подача авто точно в погоджений час. Контроль кріплення та пломбування.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-step relative fade-up">
+                        <div class="timeline-dot absolute -left-[45px] top-2 w-6 h-6 bg-[#121212] rounded-full border-4 border-bgBase"></div>
+                        <div class="timeline-content opacity-30">
+                            <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-3">04. Митниця та рух</h3>
+                            <p class="text-base opacity-80">Оформлення експортних документів. Рух по маршруту з GPS 24/7.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-step relative fade-up">
+                        <div class="timeline-dot absolute -left-[45px] top-2 w-6 h-6 bg-[#121212] rounded-full border-4 border-bgBase"></div>
+                        <div class="timeline-content opacity-30">
+                            <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-3">05. Розвантаження</h3>
+                            <p class="text-base opacity-80">Прибуття на склад отримувача, передача товару та оригіналів документів.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA BLOCK З АНІМАЦІЄЮ -->
+        <section class="bg-[#121212] text-white py-32 px-6 md:px-12 relative overflow-hidden">
+            <div class="max-w-[1440px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-5xl md:text-7xl font-display font-bold uppercase tracking-tight leading-[0.9] mb-8 fade-up">
+                        Готові почати<br>співпрацю?
+                    </h2>
+                    <p class="text-lg opacity-70 max-w-md mb-12 fade-up delay-100">
+                        Надішліть деталі вантажу. Ми підготуємо комерційну пропозицію та підберемо оптимальний транспорт для вашого бізнесу.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 fade-up delay-200">
+                        <button onclick="openPopup('quote')" class="bg-accent text-white px-10 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:scale-105 transition-all text-center shadow-[0_0_20px_rgba(240,90,48,0.2)] hover:shadow-[0_0_30px_rgba(240,90,48,0.4)]">
+                            Отримати прорахунок
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex justify-center items-center relative fade-up delay-300">
+                    <div class="w-[350px] h-[350px] border border-white/10 rounded-full flex items-center justify-center relative animate-[spin_40s_linear_infinite]">
+                        <div class="w-[250px] h-[250px] border border-accent/30 rounded-full absolute animate-[spin_30s_linear_infinite_reverse]"></div>
+                        <div class="w-[150px] h-[150px] border border-white/5 rounded-full absolute border-dashed"></div>
+                    </div>
+                    <div class="absolute text-center flex flex-col items-center">
+                        <span class="w-2 h-2 bg-accent rounded-full block mb-3 animate-pulse"></span>
+                        <span class="block text-white/50 font-display text-xs tracking-[0.5em] uppercase ml-2">Європа - Україна</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer id="contacts" class="bg-[#121212] text-white pt-24 pb-12 px-6 md:px-12 border-t border-white/10">
+            <div class="max-w-[1440px] mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-24">
+                    
+                    <div class="lg:col-span-1">
+                        <div class="flex items-center gap-2 mb-6">
+                            <span class="w-2 h-2 bg-accent rounded-full block"></span>
+                            <span class="text-lg font-display tracking-tight font-bold">EUROTRANS</span>
+                        </div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest opacity-50 mb-8 max-w-xs leading-relaxed">Професійний логістичний партнер для вашого бізнесу у Європі.</p>
+                        <div class="text-sm font-bold opacity-80 hover:text-accent cursor-pointer transition-colors"><a href="tel:+380441234567">+38 (044) 123-45-67</a></div>
+                        <div class="text-sm font-bold opacity-80 hover:text-accent cursor-pointer transition-colors mt-2"><a href="mailto:hello@eurotrans.ua">hello@eurotrans.ua</a></div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-widest text-grayMain mb-6">Послуги</h4>
+                        <ul class="space-y-4 text-sm font-medium opacity-80">
+                            <li><a href="#services" class="hover:text-white transition">FTL Перевезення</a></li>
+                            <li><a href="#services" class="hover:text-white transition">Збірні вантажі (LTL)</a></li>
+                            <li><a href="#services" class="hover:text-white transition">Рефрижератори</a></li>
+                            <li><a href="#services" class="hover:text-white transition">Небезпечні вантажі</a></li>
+                            <li><a href="#services" class="hover:text-white transition">Митне оформлення</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-widest text-grayMain mb-6">Компанія</h4>
+                        <ul class="space-y-4 text-sm font-medium opacity-80">
+                            <li><a href="#about" class="hover:text-white transition">Про нас</a></li>
+                            <li><a href="#fleet" class="hover:text-white transition">Автопарк</a></li>
+                            <li><a href="#process" class="hover:text-white transition">Як ми працюємо</a></li>
+                            <li><a href="#contacts" class="hover:text-white transition">Контакти</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-widest text-grayMain mb-6">Офіс</h4>
+                        <ul class="space-y-4 text-sm font-medium opacity-80">
+                            <li>Київ, Україна</li>
+                            <li>вул. Логістична 15, БЦ "Європа"</li>
+                            <li class="pt-4 text-xs">Пн-Пт: 09:00 - 18:00</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/10 text-[10px] font-bold uppercase tracking-widest text-grayMain">
+                    <div>© 2026 EUROTRANS. Всі права захищено.</div>
+                    <div class="flex gap-6">
+                        <button onclick="openPopup('privacy')" class="hover:text-white transition uppercase">Privacy Policy</button>
+                        <button onclick="openPopup('cookie')" class="hover:text-white transition uppercase">Cookie Policy</button>
+                        <button onclick="openPopup('gdpr')" class="hover:text-white transition uppercase">GDPR</button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- POPUPS -->
+    
+    <!-- 1. Quote Popup -->
+    <div id="popup-quote" class="fixed inset-0 z-[200] hidden items-center justify-center px-4">
+        <div class="absolute inset-0 bg-[#121212]/80 backdrop-blur-sm popup-bg" onclick="closePopup('quote')"></div>
+        <div class="relative bg-bgBase w-full max-w-2xl max-h-[90vh] overflow-y-auto no-scrollbar rounded-3xl p-8 shadow-2xl scale-95 opacity-0 transition-all duration-300 popup-content">
+            <button onclick="closePopup('quote')" class="absolute top-6 right-6 text-2xl opacity-50 hover:opacity-100 transition">×</button>
+            <h3 class="text-3xl font-display font-bold uppercase mb-2">Отримати прорахунок</h3>
+            <p class="text-sm opacity-70 mb-8">Заповніть форму, менеджер зв'яжеться з вами протягом 15 хвилин.</p>
+            <form class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-grayMain block mb-1">Ім'я *</label>
+                        <input type="text" name="name" class="premium-input w-full" required>
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-grayMain block mb-1">Телефон *</label>
+                        <input type="tel" name="phone" class="premium-input w-full" required>
+                    </div>
+                </div>
+                <label class="flex items-start gap-3 mt-6 cursor-pointer">
+                    <input type="checkbox" name="privacy_consent" class="w-4 h-4 mt-1 accent-accent" required>
+                    <span class="text-xs font-medium opacity-70">Я погоджуюся з <button type="button" onclick="openPopup('privacy')" class="underline hover:text-accent">Політикою конфіденційності</button>.</span>
+                </label>
+                <button type="button" onclick="closePopup('quote'); openPopup('success');" class="w-full bg-textMain text-white px-10 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-accent transition mt-4">
+                    Надіслати запит
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 2. Success Popup -->
+    <div id="popup-success" class="fixed inset-0 z-[210] hidden items-center justify-center px-4">
+        <div class="absolute inset-0 bg-[#121212]/90 backdrop-blur-md popup-bg" onclick="closePopup('success')"></div>
+        <div class="relative bg-white w-full max-w-md rounded-3xl p-12 shadow-2xl text-center scale-95 opacity-0 transition-all duration-300 popup-content">
+            <div class="w-20 h-20 bg-success/10 text-success rounded-full flex items-center justify-center text-4xl mx-auto mb-6">✓</div>
+            <h3 class="text-3xl font-display font-bold uppercase mb-4">Дякуємо!</h3>
+            <button onclick="closePopup('success')" class="w-full bg-textMain text-white px-10 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-textMain/80 transition">
+                Закрити
+            </button>
+        </div>
+    </div>
+
+    <!-- 3. PRIVACY POLICY POPUP -->
+    <div id="popup-privacy" class="fixed inset-0 z-[220] hidden items-center justify-center px-4 py-8">
+        <div class="absolute inset-0 bg-[#121212]/90 backdrop-blur-md popup-bg" onclick="closePopup('privacy')"></div>
+        <div class="relative bg-bgBase w-full max-w-4xl h-full max-h-[90vh] overflow-hidden flex flex-col rounded-3xl shadow-2xl scale-95 opacity-0 transition-all duration-300 popup-content">
+            <div class="p-8 border-b border-borderLine flex justify-between items-center bg-bgBase z-10 rounded-t-3xl">
+                <h3 class="text-2xl md:text-3xl font-display font-bold uppercase">Політика конфіденційності</h3>
+                <button onclick="closePopup('privacy')" class="text-3xl opacity-50 hover:opacity-100 transition">×</button>
+            </div>
+            <div class="p-8 overflow-y-auto no-scrollbar font-medium opacity-80 text-sm space-y-6">
+                <p><strong>1. Загальні положення</strong><br>Ця Політика конфіденційності визначає порядок збору, використання та захисту персональних даних користувачів сайту EUROTRANS відповідно до вимог GDPR та законодавства України.</p>
+                <p><strong>2. Які дані ми збираємо</strong><br>Ми збираємо лише ті дані, які ви добровільно надаєте через форми зворотного зв'язку: ім'я, номер телефону, email, назва компанії та деталі щодо вантажу.</p>
+                <p><strong>3. Мета обробки даних</strong><br>Ваші дані використовуються виключно для: надання прорахунку вартості послуг логістики, зв'язку з вами щодо деталей перевезення, укладання договору та покращення якості нашого сервісу.</p>
+                <p><strong>4. Передача третім особам</strong><br>Ми не продаємо і не передаємо ваші персональні дані третім особам, за винятком випадків, коли це необхідно для виконання послуги перевезення (наприклад, митним брокерам) або вимагається законом.</p>
+                <p><strong>5. Захист інформації</strong><br>Ми використовуємо сучасні технології шифрування та безпеки на серверах для захисту вашої інформації від несанкціонованого доступу.</p>
+                <p><strong>6. Ваші права</strong><br>Ви маєте право у будь-який момент відкликати згоду на обробку даних, запросити видалення вашої інформації з нашої бази або внести зміни до неї, зв'язавшись з нами за email: hello@eurotrans.ua.</p>
+            </div>
+            <div class="p-6 border-t border-borderLine bg-bgBase rounded-b-3xl text-right">
+                <button onclick="closePopup('privacy')" class="bg-textMain text-white px-10 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent transition">Зрозуміло</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. COOKIE POLICY POPUP -->
+    <div id="popup-cookie" class="fixed inset-0 z-[220] hidden items-center justify-center px-4 py-8">
+        <div class="absolute inset-0 bg-[#121212]/90 backdrop-blur-md popup-bg" onclick="closePopup('cookie')"></div>
+        <div class="relative bg-bgBase w-full max-w-4xl h-full max-h-[90vh] overflow-hidden flex flex-col rounded-3xl shadow-2xl scale-95 opacity-0 transition-all duration-300 popup-content">
+            <div class="p-8 border-b border-borderLine flex justify-between items-center bg-bgBase z-10 rounded-t-3xl">
+                <h3 class="text-2xl md:text-3xl font-display font-bold uppercase">Політика використання Cookie</h3>
+                <button onclick="closePopup('cookie')" class="text-3xl opacity-50 hover:opacity-100 transition">×</button>
+            </div>
+            <div class="p-8 overflow-y-auto no-scrollbar font-medium opacity-80 text-sm space-y-6">
+                <p><strong>1. Що таке файли cookie?</strong><br>Файли cookie — це невеликі текстові файли, які зберігаються на вашому пристрої під час відвідування нашого сайту. Вони допомагають сайту запам'ятовувати ваші дії та налаштування.</p>
+                <p><strong>2. Як ми використовуємо cookie</strong><br>Ми використовуємо необхідні cookie для базової функціональності сайту (наприклад, збереження сесій або налаштувань попапів). Також ми використовуємо аналітичні cookie (Google Analytics) для розуміння того, як користувачі взаємодіють з сайтом.</p>
+                <p><strong>3. Типи файлів cookie</strong><br>
+                • <em>Технічні (обов'язкові):</em> необхідні для роботи сайту.<br>
+                • <em>Аналітичні:</em> допомагають збирати статистику відвідувань.<br>
+                • <em>Маркетингові:</em> використовуються для відображення релевантної реклами (наразі вимкнені за замовчуванням).</p>
+                <p><strong>4. Керування файлами cookie</strong><br>Ви можете змінити налаштування файлів cookie у своєму браузері: блокувати всі cookie або отримувати сповіщення про їх збереження. Зверніть увагу, що блокування технічних cookie може вплинути на роботу деяких функцій сайту.</p>
+            </div>
+            <div class="p-6 border-t border-borderLine bg-bgBase rounded-b-3xl text-right">
+                <button onclick="closePopup('cookie')" class="bg-textMain text-white px-10 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent transition">Зрозуміло</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. GDPR POPUP -->
+    <div id="popup-gdpr" class="fixed inset-0 z-[220] hidden items-center justify-center px-4 py-8">
+        <div class="absolute inset-0 bg-[#121212]/90 backdrop-blur-md popup-bg" onclick="closePopup('gdpr')"></div>
+        <div class="relative bg-bgBase w-full max-w-4xl h-full max-h-[90vh] overflow-hidden flex flex-col rounded-3xl shadow-2xl scale-95 opacity-0 transition-all duration-300 popup-content">
+            <div class="p-8 border-b border-borderLine flex justify-between items-center bg-bgBase z-10 rounded-t-3xl">
+                <h3 class="text-2xl md:text-3xl font-display font-bold uppercase">Інформація щодо GDPR</h3>
+                <button onclick="closePopup('gdpr')" class="text-3xl opacity-50 hover:opacity-100 transition">×</button>
+            </div>
+            <div class="p-8 overflow-y-auto no-scrollbar font-medium opacity-80 text-sm space-y-6">
+                <p><strong>Відповідність Загальному регламенту про захист даних (GDPR)</strong></p>
+                <p>Як суб'єкт даних (користувач з Європейського Союзу або України), ви маєте такі права згідно з регламентом GDPR:</p>
+                <p><strong>1. Право на доступ:</strong> Ви маєте право знати, які ваші персональні дані ми зберігаємо і як вони використовуються.</p>
+                <p><strong>2. Право на виправлення:</strong> Ви можете вимагати виправлення неточних або неповних даних.</p>
+                <p><strong>3. Право на забуття (видалення):</strong> Ви можете вимагати видалення ваших персональних даних з наших баз, якщо вони більше не потрібні для цілей, для яких були зібрані, і у нас немає законних підстав для їх подальшого зберігання.</p>
+                <p><strong>4. Право на обмеження обробки:</strong> Ви можете вимагати призупинення обробки ваших даних за певних умов.</p>
+                <p><strong>5. Право на переносимість даних:</strong> Ви маєте право отримати свої дані у структурованому форматі.</p>
+                <p><strong>Контакти відповідального за захист даних (DPO):</strong><br>Для реалізації будь-якого з цих прав, будь ласка, надішліть запит на електронну адресу: <strong>hello@eurotrans.ua</strong>. Ми зобов'язуємося розглянути запит та надати відповідь протягом 30 днів.</p>
+            </div>
+            <div class="p-6 border-t border-borderLine bg-bgBase rounded-b-3xl text-right">
+                <button onclick="closePopup('gdpr')" class="bg-textMain text-white px-10 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent transition">Зрозуміло</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS LOGIC -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // Header scroll effect
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if(window.scrollY > 50) {
+                    header.classList.add('bg-[#121212]/95', 'backdrop-blur-md', 'shadow-sm', 'h-[70px]');
+                    header.classList.remove('bg-transparent', 'h-[80px]');
+                } else {
+                    header.classList.remove('bg-[#121212]/95', 'backdrop-blur-md', 'shadow-sm', 'h-[70px]');
+                    header.classList.add('bg-transparent', 'h-[80px]');
+                }
+            });
+
+            // Mobile Menu Logic
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Section scroll transition
+            const container = document.getElementById('animation-container');
+            const nextSection = document.getElementById('next-section');
+            function updateScroll() {
+                if(!container || !nextSection) return;
+                const rect = container.getBoundingClientRect();
+                const scrollable = rect.height - window.innerHeight;
+                let progress = Math.max(0, Math.min(1, -rect.top / scrollable));
+                let translateY = 100; 
+                if(progress >= 0.666) {
+                    translateY = 100 * (1 - ((progress - 0.666) / 0.334));
+                }
+                nextSection.style.transform = `translateY(${translateY}%)`;
+            }
+            window.addEventListener('scroll', updateScroll, { passive: true });
+            updateScroll();
+
+            // Fade Up Observer
+            const fadeElements = document.querySelectorAll('.fade-up');
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        fadeObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            fadeElements.forEach(el => fadeObserver.observe(el));
+
+            // Blur In Observer
+            const blurElements = document.querySelectorAll('.blur-in');
+            const blurObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        blurObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            blurElements.forEach(el => blurObserver.observe(el));
+
+            // Count Up Observer
+            const countElements = document.querySelectorAll('.count-up');
+            const countObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.getAttribute('data-target'), 10);
+                        const duration = 1500; 
+                        let start = null;
+                        
+                        // Функція плавності (easeOutQuad)
+                        const easeOut = (t) => t * (2 - t);
+
+                        const step = (timestamp) => {
+                            if (!start) start = timestamp;
+                            const progress = Math.min((timestamp - start) / duration, 1);
+                            const currentCount = Math.floor(easeOut(progress) * target);
+                            el.innerText = currentCount;
+
+                            if (progress < 1) {
+                                window.requestAnimationFrame(step);
+                            } else {
+                                el.innerText = target;
+                            }
+                        };
+
+                        window.requestAnimationFrame(step);
+                        countObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+            countElements.forEach(el => countObserver.observe(el));
+
+            // Timeline Animation
+            const timelineSteps = document.querySelectorAll('#auto-timeline .timeline-step');
+            if(timelineSteps.length > 0) {
+                let currentStep = 0;
+                let intervalId = null;
+
+                function activateStep(index) {
+                    timelineSteps.forEach((step, i) => {
+                        const dot = step.querySelector('.timeline-dot');
+                        const content = step.querySelector('.timeline-content');
+                        
+                        if (i === index) {
+                            dot.classList.remove('bg-[#121212]');
+                            dot.classList.add('bg-accent', 'shadow-[0_0_15px_rgba(240,90,48,0.6)]');
+                            content.classList.remove('opacity-30');
+                            content.classList.add('opacity-100');
+                        } else {
+                            dot.classList.remove('bg-accent', 'shadow-[0_0_15px_rgba(240,90,48,0.6)]');
+                            dot.classList.add('bg-[#121212]');
+                            content.classList.remove('opacity-100');
+                            content.classList.add('opacity-30');
+                        }
+                    });
+                }
+
+                const timelineObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if(entry.isIntersecting) {
+                            if(!intervalId) {
+                                intervalId = setInterval(() => {
+                                    currentStep = (currentStep + 1) % timelineSteps.length;
+                                    activateStep(currentStep);
+                                }, 2500);
+                            }
+                        } else {
+                            clearInterval(intervalId);
+                            intervalId = null;
+                        }
+                    });
+                }, { threshold: 0.3 });
+                
+                timelineObserver.observe(document.getElementById('auto-timeline'));
+            }
+
+            // Popups
+            window.openPopup = function(id) {
+                const popup = document.getElementById(`popup-${id}`);
+                const content = popup.querySelector('.popup-content');
+                popup.classList.remove('hidden');
+                popup.classList.add('flex');
+                setTimeout(() => {
+                    content.classList.remove('scale-95', 'opacity-0');
+                    content.classList.add('scale-100', 'opacity-100');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            }
+
+            window.closePopup = function(id) {
+                const popup = document.getElementById(`popup-${id}`);
+                const content = popup.querySelector('.popup-content');
+                content.classList.remove('scale-100', 'opacity-100');
+                content.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    popup.classList.add('hidden');
+                    popup.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>

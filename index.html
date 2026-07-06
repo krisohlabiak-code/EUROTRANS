@@ -120,79 +120,86 @@
         </div>
     </div>
 
-    <!-- HERO SECTION -->
-    <section class="relative min-h-screen w-full flex items-center pt-24 pb-8 bg-[#121212] overflow-hidden">
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-50">
-            <source src="https://res.cloudinary.com/sp3dp7jy/video/upload/v1783339803/hero_section_ehrlgk.webm" type="video/webm">
-        </video>
-        <div class="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/80 to-transparent"></div>
-
-        <div class="relative z-20 w-full max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div class="lg:col-span-7 text-white fade-up pt-10 lg:pt-0">
-                <h1 class="text-[10vw] sm:text-[8vw] lg:text-[80px] xl:text-[100px] font-display font-bold leading-[1.2] tracking-tighter uppercase mb-6">
-                    Міжнародна<br>Логістика
-                </h1>
-                <p class="text-sm sm:text-lg max-w-lg font-medium opacity-80 leading-relaxed mb-8">
-                    Перевозимо вантажі між Україною та країнами Європи. Власний автопарк. GPS-контроль 24/7. CMR-страхування.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#services" class="bg-transparent border border-white/30 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-textMain transition-colors text-center inline-block">
-                        Наші послуги
-                    </a>
+    <!-- HERO SECTION: ОФФЕР ТА СТА -->
+    <section class="relative w-full bg-[#121212] pt-32 pb-8 lg:pb-10 overflow-hidden">
+        <div class="relative z-20 w-full max-w-[1440px] mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start fade-up">
+                
+                <!-- Ліва частина: Заголовок -->
+                <div>
+                    <h1 class="text-[12vw] sm:text-[9vw] lg:text-[80px] xl:text-[100px] font-display font-bold leading-[1.05] tracking-tighter uppercase text-white">
+                        Міжнародна<br>Логістика
+                    </h1>
                 </div>
-            </div>
 
-            <div class="lg:col-span-5 fade-up delay-200">
-                <div class="relative rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                    <div class="absolute inset-0 parallax-bg opacity-30"></div>
-                    <div class="absolute inset-0 bg-black/60 backdrop-blur-md"></div>
-                    
-                    <div class="relative z-10 p-8 sm:p-10">
-                        <h2 class="text-2xl sm:text-3xl font-display font-bold uppercase text-white mb-2 tracking-tight">Розрахунок вартості</h2>
-                        <p class="text-xs text-white/60 mb-6 uppercase tracking-widest font-bold">Отримайте пропозицію за 15 хвилин</p>
-                        
-                        <form class="space-y-4">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-1">Звідки</label>
-                                    <input type="text" placeholder="Країна, Місто" class="dark-input w-full text-sm">
-                                </div>
-                                <div>
-                                    <label class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-1">Куди</label>
-                                    <input type="text" placeholder="Країна, Місто" class="dark-input w-full text-sm">
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-1">Тип вантажу / Транспорт</label>
-                                <select class="dark-input w-full text-sm appearance-none cursor-pointer">
-                                    <option class="text-black">Тент (FTL)</option>
-                                    <option class="text-black">Збірний (LTL)</option>
-                                    <option class="text-black">Рефрижератор</option>
-                                    <option class="text-black">Небезпечний (ADR)</option>
-                                </select>
-                            </div>
-                            
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-1">Вага / Палети</label>
-                                    <input type="text" placeholder="напр. 20т" class="dark-input w-full text-sm">
-                                </div>
-                                <div>
-                                    <label class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-1">Телефон</label>
-                                    <input type="tel" placeholder="+380" class="dark-input w-full text-sm">
-                                </div>
-                            </div>
-
-                            <button type="button" class="w-full bg-accent text-white mt-4 px-6 py-4 rounded-xl text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-textMain transition-colors flex justify-center items-center gap-2">
-                                Отримати прорахунок ↗
-                            </button>
-                        </form>
+                <!-- Права частина: Опис та Кнопка -->
+                <div class="lg:pt-8 flex flex-col justify-start">
+                    <p class="text-base sm:text-lg lg:text-xl font-medium opacity-80 leading-relaxed mb-12 lg:mb-14 text-white max-w-lg">
+                        Перевозимо вантажі між Україною та країнами Європи. Власний автопарк. GPS-контроль 24/7. CMR-страхування.
+                    </p>
+                    <div>
+                        <a href="#services" class="bg-white text-[#121212] px-10 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-accent hover:text-white transition-colors text-center inline-block">
+                            Наші послуги
+                        </a>
                     </div>
                 </div>
-            </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO SECTION: ВІДЕО -->
+    <section class="w-full relative h-[40vh] sm:h-[50vh] lg:h-[70vh] bg-gray-300">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+            <source src="https://res.cloudinary.com/sp3dp7jy/video/upload/v1783339803/hero_section_ehrlgk.webm" type="video/webm">
+        </video>
+    </section>
+
+    <!-- HERO SECTION: КАЛЬКУЛЯТОР -->
+    <section class="w-full bg-[#121212] py-12 lg:py-16 border-b border-white/10">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-12 fade-up delay-100">
+            <h2 class="text-2xl sm:text-3xl font-display font-bold uppercase text-white mb-2 tracking-tight">Розрахунок вартості</h2>
+            <p class="text-xs text-white/60 mb-8 uppercase tracking-widest font-bold">Отримайте пропозицію за 15 хвилин</p>
+            
+            <!-- Горизонтальна форма для десктопу, вертикальна для мобілок -->
+            <form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 items-end">
+                <div class="w-full">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Звідки</label>
+                    <input type="text" placeholder="Країна, Місто" class="dark-input w-full text-sm">
+                </div>
+                
+                <div class="w-full">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Куди</label>
+                    <input type="text" placeholder="Країна, Місто" class="dark-input w-full text-sm">
+                </div>
+                
+                <div class="w-full">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Вантаж / Транспорт</label>
+                    <select class="dark-input w-full text-sm appearance-none cursor-pointer">
+                        <option class="text-black">Тент (FTL)</option>
+                        <option class="text-black">Збірний (LTL)</option>
+                        <option class="text-black">Рефрижератор</option>
+                        <option class="text-black">Небезпечний (ADR)</option>
+                    </select>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 w-full">
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Вага/Палети</label>
+                        <input type="text" placeholder="напр. 20т" class="dark-input w-full text-sm">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-white/50 block mb-2">Телефон</label>
+                        <input type="tel" placeholder="+380" class="dark-input w-full text-sm">
+                    </div>
+                </div>
+
+                <div class="w-full h-[50px] lg:h-[54px] mt-2 lg:mt-0">
+                    <button type="button" class="w-full h-full bg-accent text-white rounded-xl text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-textMain transition-colors flex justify-center items-center gap-2">
+                        Прорахувати ↗
+                    </button>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -203,7 +210,7 @@
                 <div class="fade-up">
                     <span class="text-sm font-bold uppercase tracking-widest opacity-60 mb-4 block">• ПРО КОМПАНІЮ</span>
                     <h2 class="text-4xl md:text-5xl lg:text-[56px] font-display font-bold leading-[1.1] tracking-tight text-textMain">
-                        Експертиза в міжнародних перевезеннях
+                        Експерти в міжнародних перевезеннях
                     </h2>
                 </div>
                 

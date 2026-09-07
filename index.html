@@ -58,7 +58,7 @@ body{
   -webkit-font-smoothing:antialiased;
   line-height:1.5;
 }
-img{max-width:100%;display:block;}
+img, video{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
 h1,h2,h3,h4{font-family:var(--font-display);margin:0;font-weight:700;}
@@ -146,14 +146,14 @@ ul{margin:0;padding:0;list-style:none;}
 @media(min-width:1024px){.hero-right{padding-top:32px;}}
 .hero-desc{font-size:clamp(16px,1.6vw,20px);font-weight:500;opacity:0.8;line-height:1.6;margin-bottom:48px;max-width:480px;}
 
-/* ---------- Visual band (заміна відео, статичне зображення з м'яким zoom) ---------- */
+/* ---------- Visual band (заміна відео, статичне зображення/відео з м'яким zoom) ---------- */
 .visual-band{width:100%;position:relative;overflow:hidden;background:var(--card-bg);}
 .visual-band.h-hero{height:40vh;}
 @media(min-width:640px){.visual-band.h-hero{height:50vh;}}
 @media(min-width:1024px){.visual-band.h-hero{height:70vh;}}
 .visual-band.h-mid{height:40vh;}
 @media(min-width:768px){.visual-band.h-mid{height:50vh;}}
-.visual-band img{width:100%;height:100%;object-fit:cover;animation:kenburns 24s ease-in-out infinite alternate;}
+.visual-band img, .visual-band video {width:100%;height:100%;object-fit:cover;animation:kenburns 24s ease-in-out infinite alternate;}
 @keyframes kenburns{from{transform:scale(1);}to{transform:scale(1.08);}}
 .visual-band-tint{position:absolute;inset:0;background:rgba(18,18,18,0.18);}
 
@@ -311,7 +311,7 @@ ul{margin:0;padding:0;list-style:none;}
 /* ---------- Final CTA (image bg, як відео-блок оригіналу) ---------- */
 .final-cta{position:relative;overflow:hidden;background:var(--dark);color:#fff;}
 .final-cta-bg{position:absolute;inset:0;}
-.final-cta-bg img{width:100%;height:100%;object-fit:cover;opacity:0.4;animation:kenburns 26s ease-in-out infinite alternate;}
+.final-cta-bg img, .final-cta-bg video {width:100%;height:100%;object-fit:cover;opacity:0.4;animation:kenburns 26s ease-in-out infinite alternate;}
 .final-cta-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, var(--dark) 0%, rgba(18,18,18,0.8) 55%, transparent 100%);}
 .final-cta-inner{position:relative;z-index:2;max-width:560px;}
 .final-cta h2{font-size:clamp(34px,5.5vw,58px);text-transform:uppercase;line-height:0.95;margin-bottom:20px;}
@@ -405,7 +405,7 @@ ul{margin:0;padding:0;list-style:none;}
 
 <!-- ============ HERO: ВІЗУАЛ ============ -->
 <div class="visual-band h-hero">
-  <img src="https://images.unsplash.com/photo-1591768793355-74d04bb6608f?q=80&w=1920&auto=format&fit=crop" alt="Вантажівка на трасі під час перевезення на далеку відстань" loading="eager">
+  <video src="https://res.cloudinary.com/sp3dp7jy/video/upload/v1783339803/hero_section_ehrlgk.webm" autoplay muted loop playsinline></video>
   <div class="visual-band-tint"></div>
 </div>
 
@@ -664,7 +664,7 @@ ul{margin:0;padding:0;list-style:none;}
 <!-- ============ CTA BLOCK ============ -->
 <section class="final-cta section">
   <div class="final-cta-bg">
-    <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=1600&auto=format&fit=crop" alt="Контейнерний термінал — міжнародний масштаб перевезень EUROTRANS" loading="lazy">
+    <video src="https://res.cloudinary.com/sp3dp7jy/video/upload/v1783339802/cooperation_ni49yz.webm" autoplay muted loop playsinline></video>
   </div>
   <div class="container">
     <div class="final-cta-inner fade-up">
